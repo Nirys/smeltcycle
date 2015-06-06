@@ -1,0 +1,16 @@
+[
+{
+  "modid": "smeltcycle",
+  "name": "Smelt Cycle",
+  "description": "Mod for Minecraft Forge to allow recycling of tools, armor and weapons.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["QueenNuffer"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
