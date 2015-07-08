@@ -19,10 +19,9 @@ public class SmeltCycle
 	public static SmeltCycle instance;
 
     public static final String MODID = "SmeltCycle";
-    public static final String VERSION = "1.0";
+    public static final String VERSION = "1.1";
     
     public SmeltCycle(){
-        System.out.println("Initializing SmeltCycle11");    	    
     }
     
     @EventHandler
@@ -33,7 +32,7 @@ public class SmeltCycle
         this.addGoldenItems();
         this.addDiamondItems();        
     }
-    
+        
     private void addSmeltingCycle(Item undamagedItem, Item returnItem, int returnQty, float xp){
     	ItemStack cycleItem = new ItemStack(undamagedItem);
     	cycleItem.setItemDamage(0);
@@ -70,7 +69,11 @@ public class SmeltCycle
     	this.addSmeltingCycle(Items.bucket, Items.iron_ingot, 2, 0);
     	this.addSmeltingCycle(Items.cauldron, Items.iron_ingot, 2,0);
     	this.addSmeltingCycle(Items.minecart, Items.iron_ingot, 4,0);
-    	this.addSmeltingCycle(Items.iron_door, Items.iron_ingot, 2,0);
+    	this.addSmeltingCycle(Items.iron_door, Items.iron_ingot, 2,0);    	    	
+    	this.addSmeltingCycle(Blocks.iron_bars.getItem(null, null), Items.iron_ingot, 4,0);
+    	this.addSmeltingCycle(Blocks.cauldron.getItem(null, null), Items.iron_ingot, 3, 0);
+    	this.addSmeltingCycle(Blocks.hopper.getItem(null,null), Items.iron_ingot, 3, 0);
+    	
     }
     
     private void addGoldenItems(){
