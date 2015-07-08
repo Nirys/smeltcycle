@@ -71,7 +71,6 @@ public class SmeltCycle
     	this.addSmeltingCycle(Items.minecart, Items.iron_ingot, 4,0);
     	this.addSmeltingCycle(Items.iron_door, Items.iron_ingot, 2,0);    	    	
     	this.addSmeltingCycle(Blocks.iron_bars.getItem(null, null), Items.iron_ingot, 4,0);
-    	this.addSmeltingCycle(Blocks.cauldron.getItem(null, null), Items.iron_ingot, 3, 0);
     	this.addSmeltingCycle(Blocks.hopper.getItem(null,null), Items.iron_ingot, 3, 0);
     	
     }
