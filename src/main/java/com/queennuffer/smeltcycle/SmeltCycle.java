@@ -4,24 +4,34 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.common.config.Property;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = SmeltCycle.MODID, name="SmeltCycle", version = SmeltCycle.VERSION, acceptableRemoteVersions = "*")
 public class SmeltCycle
 {
 	@Instance("SmeltCycle")
-	@SidedProxy(clientSide="com.queennuffer.smeltcycle.SmeltCycle", serverSide="com.queennuffer.smeltcycle.SmeltCycle")
 	public static SmeltCycle instance;
+
+	@SidedProxy(clientSide="com.queennuffer.smeltcycle.ClientProxy", serverSide="com.queennuffer.smeltcycle.ServerProxy")
+	public static ServerProxy proxy;
 
     public static final String MODID = "SmeltCycle";
     public static final String VERSION = "1.1";
     
     public SmeltCycle(){
+    }
+    
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event){
+    	proxy.doPreInit(event);
     }
     
     @EventHandler
@@ -58,7 +68,7 @@ public class SmeltCycle
     	this.addSmeltingCycle(Items.iron_axe, Items.iron_ingot, 2, 0);
     	this.addSmeltingCycle(Items.iron_hoe, Items.iron_hoe, 1, 0);
     	this.addSmeltingCycle(Items.iron_horse_armor, Items.iron_ingot, 4,0);
-    	this.addSmeltingCycle(Items.iron_pickaxe, Items.iron_pickaxe, 2, 0);
+    	this.addSmeltingCycle(Items.iron_pickaxe, Items.iron_ingot, 2, 0);
     	this.addSmeltingCycle(Items.iron_shovel, Items.iron_ingot, 1, 0);
     	this.addSmeltingCycle(Items.iron_boots, Items.iron_ingot, 3,0 );
     	this.addSmeltingCycle(Items.iron_chestplate, Items.iron_ingot, 6, 0 );
@@ -71,8 +81,7 @@ public class SmeltCycle
     	this.addSmeltingCycle(Items.minecart, Items.iron_ingot, 4,0);
     	this.addSmeltingCycle(Items.iron_door, Items.iron_ingot, 2,0);    	    	
     	this.addSmeltingCycle(Blocks.iron_bars.getItem(null, null), Items.iron_ingot, 4,0);
-    	this.addSmeltingCycle(Blocks.hopper.getItem(null,null), Items.iron_ingot, 3, 0);
-    	
+    	this.addSmeltingCycle(Blocks.hopper.getItem(null,null), Items.iron_ingot, 3, 0);    	
     }
     
     private void addGoldenItems(){
